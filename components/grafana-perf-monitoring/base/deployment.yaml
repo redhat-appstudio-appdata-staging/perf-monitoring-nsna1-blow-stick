@@ -35,7 +35,7 @@ spec:
       - envFrom:
         - secretRef:
             name: grafana-secret
-        image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/grafana-perf-monitoring@sha256:eb3e9976f15167b4a9175b27f9b22d030663d7d750f7bf1a34caf848ff60e405
+        image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/grafana-perf-monitoring@sha256:fe04b25ed14c2ab79902520af01cf2e4fcab65ed0d701bd0f0bf6d04fe4545b1
         imagePullPolicy: Always
         name: perf-grafana
         ports:
