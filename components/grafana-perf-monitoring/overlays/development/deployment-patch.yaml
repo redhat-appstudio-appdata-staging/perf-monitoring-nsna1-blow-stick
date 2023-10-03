@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: grafana-perf-monitoring
+spec:
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/grafana-perf-monitoring@sha256:915c7aaa998b8d3cd38ee7d928a29ba619e019070e1b908b69c61ee4615e8c57
+        name: perf-grafana
+        resources: {}
+status: {}
