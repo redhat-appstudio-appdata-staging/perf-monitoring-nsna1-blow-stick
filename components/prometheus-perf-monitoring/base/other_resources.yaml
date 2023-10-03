@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  prometheus.yml: |-
+    # Prometheus configuration
+    global:
+      scrape_interval: 15s
+    scrape_configs:
+      - job_name: 'pushgateway'
+        honor_labels: true
+        static_configs:
+          - targets: ['pushgateway-perf-monitoring:9091'] # Replace with your Pushgateway service name and port
+kind: ConfigMap
+metadata:
+  name: perf-prometheus-config
+---

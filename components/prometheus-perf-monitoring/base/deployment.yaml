@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: perf-monitoring
+    app.kubernetes.io/component: perf-prometheus
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: prometheus-perf-monitoring
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: prometheus-perf-monitoring
+    app.kubernetes.io/part-of: perf-monitoring
+    component: perf-prometheus
+  name: prometheus-perf-monitoring
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: perf-monitoring
+      app.kubernetes.io/instance: prometheus-perf-monitoring
+      component: perf-prometheus
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: perf-monitoring
+        app.kubernetes.io/component: perf-prometheus
+        app.kubernetes.io/instance: prometheus-perf-monitoring
+        app.kubernetes.io/name: perf-monitoring
+        component: perf-prometheus
+    spec:
+      containers:
+      - args:
+        - --config.file=/etc/prometheus/prometheus.yml
+        - --storage.tsdb.path=/prometheus
+        image: prom/prometheus:v2.33.0
+        imagePullPolicy: Always
+        name: perf-prometheus
+        ports:
+        - containerPort: 9090
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 200m
+            memory: 128Mi
+        securityContext:
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /etc/prometheus/prometheus.yml
+          name: config-volume
+          subPath: prometheus.yml
+        - mountPath: /prometheus
+          name: data
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          name: perf-prometheus-config
+        name: config-volume
+      - emptyDir: {}
+        name: data
+status: {}
