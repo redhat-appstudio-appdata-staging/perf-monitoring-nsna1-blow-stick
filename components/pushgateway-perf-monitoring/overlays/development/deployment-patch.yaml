@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: pushgateway-perf-monitoring
+spec:
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/pushgateway-perf-monitoring@sha256:7c0e37b1153b5b9e6f93671a0e7006547a7d7f4560b5a6fd21dda575d2a948f7
+        name: perf-pushgateway
+        resources: {}
+status: {}
