@@ -35,7 +35,7 @@ spec:
       - args:
         - --config.file=/etc/prometheus/prometheus.yml
         - --storage.tsdb.path=/prometheus
-        image: prom/prometheus:v2.33.0
+        image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/prometheus-perf-monitoring@sha256:3e418c5ce9c6fe6fea8c30e8d0671ddd9922e7bafb36b6d4df2cb0184356ce61
         imagePullPolicy: Always
         name: perf-prometheus
         ports:
