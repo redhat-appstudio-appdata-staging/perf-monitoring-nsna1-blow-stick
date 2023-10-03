@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  grafana.ini: |-
+    #[server]
+    #domain = example.com
+    #root_url = %(protocol)s://%(domain)s:/grafana
+    [database]
+    ssl_mode = require
+kind: ConfigMap
+metadata:
+  name: grafana-config
+---
