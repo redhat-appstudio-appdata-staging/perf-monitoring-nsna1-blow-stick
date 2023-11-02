@@ -11,7 +11,7 @@ spec:
       creationTimestamp: null
     spec:
       containers:
-      - image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/grafana-perf-monitoring@sha256:eb3e9976f15167b4a9175b27f9b22d030663d7d750f7bf1a34caf848ff60e405
+      - image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/grafana-perf-monitoring@sha256:d5bf13dc95bad4b8085d7b66148205400f8522a292d12fe2f4c491833c018c7b
         name: perf-grafana
         resources: {}
 status: {}
