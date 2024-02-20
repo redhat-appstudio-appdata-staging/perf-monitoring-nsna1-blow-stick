@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   name: prometheus-perf-monitoring
 spec:
+  replicas: 1
   selector: {}
   strategy: {}
   template:
@@ -11,7 +12,7 @@ spec:
       creationTimestamp: null
     spec:
       containers:
-      - image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/prometheus-perf-monitoring@sha256:3e418c5ce9c6fe6fea8c30e8d0671ddd9922e7bafb36b6d4df2cb0184356ce61
+      - image: quay.io/redhat-user-workloads-stage/msawood-tenant/perf-monitoring/prometheus-perf-monitoring@sha256:4fb7c70e0c9b10f538c8d3126f8fbe95fba2cf40ec380a541004b8085e0e5141
         name: perf-prometheus
         resources: {}
 status: {}
