@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   name: pushgateway-perf-monitoring
 spec:
+  replicas: 1
   selector: {}
   strategy: {}
   template:
